@@ -14,6 +14,9 @@ import { ApiserviceService } from './services/apiservice.service';
 })
 export class AppComponent implements OnInit {
 
+  idMunicipio:string=''
+  idProvincia:string=''
+
   municipio:Municipio = {
     codmuni:'',
     codprov: '',
@@ -46,6 +49,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    /*
     this.apiservice.getMunicipiosbyid('01010').subscribe(resp=>{
       this.municipio = resp
     })
@@ -58,6 +62,29 @@ export class AppComponent implements OnInit {
     this.apiservice.getTemperaturaMunicipios('01010').subscribe(resp=>{
       this.tiempoM = resp
     })
+    */
+  }
+
+  buscarMunicipio(): void{
+    if(this.idMunicipio!=''){
+      this.apiservice.getTemperaturaMunicipios(this.idMunicipio).subscribe(resp=>{
+        this.tiempoM = resp
+      })
+
+      this.apiservice.getMunicipiosbyid(this.idMunicipio).subscribe(resp=>{
+        this.municipio = resp
+      })
+    }
+
+    if(this.idProvincia!=''){
+      this.apiservice.getProvinciasbyid(this.idProvincia).subscribe(resp=>{
+        this.provincia = resp
+      })
+      this.apiservice.getTemperaturaProvincia(this.idProvincia).subscribe(resp=>{
+        this.tiempo = resp
+      })
+    }
+    
   }
 
 }

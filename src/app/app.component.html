@@ -1,8 +1,18 @@
+
+<form>
+    <label>Municipio:</label><input type="text" name="idMuni" [(ngModel)]="idMunicipio" /><br/>
+    <label>Provincia:</label><input type="text" name="codPostal" [(ngModel)]="idProvincia" /><br/>
+    <input type="submit" value="Buscar" (click)="buscarMunicipio()">
+</form>
 <p>
-    La provincia {{ provincia.nombre }} con capital {{ provincia.capital }} tiene hoy {{ tiempo.hoy }}
+   Cod_Municipio: {{ idMunicipio }}
+</p>
+
+<p>
+    La provincia <b>{{ provincia.nombre }}</b> con capital <b>{{ provincia.capital }}</b> tiene hoy <b>{{ tiempo.hoy }}</b>
 </p>
 <br>
-<p>Municipio: {{ municipio.nombre }}</p>
+<p>Municipio: <b>{{ municipio.nombre }}</b></p>
 <p>
-    Con una maxima de {{ tiempoM.maxima }} grados y una minima de {{ tiempoM.minima}} grados
+    Con una maxima de <b>{{ tiempoM.maxima }}</b> grados y una minima de <b>{{ tiempoM.minima }}</b> grados
 </p>
